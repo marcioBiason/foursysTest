@@ -1,0 +1,10 @@
+<main class="main">
+  <app-loading [loading]="loading"></app-loading>
+  <app-error *ngIf="error"></app-error>
+  <article *ngIf="recipe" class="box-recipe">
+    <h2 class="recipe-title"> {{ recipe.title }} </h2>
+    <img *ngIf="!loading" class="recipe-img" [src]="recipe.image? recipe.image : IMGNOTFOUND" [alt]="recipe.title" />
+    <div class="recipe-summary" [innerHTML]="recipe.summary"></div>
+  </article>
+  <app-button *ngIf="!error" title="Voltar a galeria de receitas" (click)="backTogallery()"></app-button>
+</main>

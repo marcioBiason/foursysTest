@@ -1,0 +1,11 @@
+<main class="main">
+<app-error *ngIf="error"></app-error>
+  <div class="box-recipe-grid">
+    <div class="box-recipe" *ngFor="let recipe of recipes">
+      <img [routerLink]="['/detail/', recipe.id]" [src]="recipe.image? recipe.image : IMGNOTFOUND"
+        [alt]="recipe.title">
+      <p class="recipe-title"> {{ recipe.title }} </p>
+    </div>
+  </div>
+  <app-button *ngIf="!error && !loading" title="Carregar mais receitas" (click)="getRecipeList()"></app-button>
+</main>
